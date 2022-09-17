@@ -7,19 +7,19 @@ from time import sleep
 sense = SenseHat()
 sense.clear()
 
-red = (255,0,0)
-green = (0,255,0)
+r = (255,0,0)
+g = (0,255,0)
 blue = (0,0,255)
 yellow = (255,255,0)
-black = (0,0,0)
-white = (255,255,255)
+b = (0,0,0)
+w = (255,255,255)
 
 #####################################################################
 
 # Coding Exercise 5a
 
-# sense.set_pixel(0,0,red)
-# sense.set_pixel(7,0,green)
+# sense.set_pixel(0,0,r)
+# sense.set_pixel(7,0,g)
 # sense.set_pixel(0,7,blue)
 # sense.set_pixel(7,7,yellow)
 # sleep(2)
@@ -45,32 +45,32 @@ white = (255,255,255)
 #         sleep(1)
 #         sense.clear()           
         
-# setRandomColours([red,green,blue,yellow], 50)
+# setRandomColours([r,g,blue,yellow], 50)
 
 #####################################################################
 
 # Coding exercise 5b,5c
 
-# colourList = [red,green,blue,yellow,black,white] # ONLY EVEN NUMBER OF COLOURS
-# defaultImage = [black, black, black, black, black, black, black, black,
-#                 black, black, black, yellow, black, black, black, black,
-#                 black, black, yellow, yellow, yellow, black, black, black,
-#                 black, yellow, black, yellow, black, yellow, black, black,
-#                 black, black, black, yellow, black, black, black, black,
-#                 black, black, black, yellow, black, black, black, black,
-#                 black, black, black, yellow, black, black, black, black, 
-#                 black, black, black, black, black, black, black, green]
+# colourList = [r,g,blue,yellow,b,w] # ONLY EVEN NUMBER OF COLOURS
+# defaultImage = [b, b, b, b, b, b, b, b,
+#                 b, b, b, yellow, b, b, b, b,
+#                 b, b, yellow, yellow, yellow, b, b, b,
+#                 b, yellow, b, yellow, b, yellow, b, b,
+#                 b, b, b, yellow, b, b, b, b,
+#                 b, b, b, yellow, b, b, b, b,
+#                 b, b, b, yellow, b, b, b, b, 
+#                 b, b, b, b, b, b, b, g]
 
 # sense.set_pixels(defaultImage)
 
-# flipColourDict = {black:yellow, yellow:black} # must come in pairs e.g black:yellow AND yellow:black | replaced colour must not be repeated
+# flipColourDict = {b:yellow, yellow:b} # must come in pairs e.g b:yellow AND yellow:b | replaced colour must not be repeated
 
 # def flipColour(imagePixel, random=False):
 #     flipColourDict2 = dict(flipColourDict)
 #     if random:
 #         flipColourDict2 = {}
 #         newColourDict = {}
-#         colourListCopy = list(colourList) #[red,green,blue,yellow,black,white]
+#         colourListCopy = list(colourList) #[r,g,blue,yellow,b,w]
 #         usedColours = list(colourList)
 #         for i in colourList:
 #             colourListCopy.remove(i)
@@ -112,58 +112,68 @@ white = (255,255,255)
 
 #####################################################################
 
-# Coding exercise 5d Challenge | not done/not working
+# Coding exercise 5d Challenge
 
+arrow_red=[
+  b,b,b,b,b,b,b,b,
+  b,b,b,r,b,b,b,b,
+  b,b,r,r,r,b,b,b,
+  b,r,b,r,b,r,b,b,
+  b,b,b,r,b,b,b,b,
+  b,b,b,r,b,b,b,b,
+  b,b,b,r,b,b,b,b,
+  b,b,b,b,b,b,b,b]
 
-# gameImage = [black, black, black, black, black, black, black, black,
-#                 black, black, black, green, black, black, black, black,
-#                 black, black, green, green, green, black, black, black,
-#                 black, green, black, green, black, green, black, black,
-#                 black, black, black, green, black, black, black, black,
-#                 black, black, black, green, black, black, black, black,
-#                 black, black, black, green, black, black, black, black, 
-#                 black, black, black, black, black, black, black, black]
+arrow_green=[
+  b,b,b,b,b,b,b,b,
+  b,b,b,g,b,b,b,b,
+  b,b,g,g,g,b,b,b,
+  b,g,b,g,b,g,b,b,
+  b,b,b,g,b,b,b,b,
+  b,b,b,g,b,b,b,b,
+  b,b,b,g,b,b,b,b,
+  b,b,b,b,b,b,b,b]
 
-# failImage = [black, black, black, black, black, black, black, black,
-#                 black, black, black, red, black, black, black, black,
-#                 black, black, red, red, red, black, black, black,
-#                 black, red, black, red, black, red, black, black,
-#                 black, black, black, red, black, black, black, black,
-#                 black, black, black, red, black, black, black, black,
-#                 black, black, black, red, black, black, black, black, 
-#                 black, black, black, black, black, black, black, black]
+def game(score=0, angle=0, delay=3):
+    while True:
+        last_angle = angle
+        while angle == last_angle:
+            angle = choice([0, 90, 180, 270])
 
-# def game():
-#     while True:
-#         sense.set_pixels(gameImage)
-        
-#         angle = 0
-        
-#         new_angle = choice([0,90,180,270])
-#         while angle == new_angle:
-#             new_angle = choice([0,90,180,270])
-        
-#         accel = sense.get_accelerometer_raw()
-#         x = round(accel['x'],0)
-#         y = round(accel['y'],0)
-        
-#         if angle == 0 and y == 1:
-#             angle = choice([0,90,180,270])
-#             sense.set_rotation(angle)
-#         elif angle == 270 and y == -1:
-#             angle = choice([0,90,180,270])
-#             sense.set_rotation(angle)
-#         elif angle == 180 and x == 1:
-#             angle = choice([0,90,180,270])
-#             sense.set_rotation(angle)
-#         elif angle == 90 and x == -1:
-#             angle = choice([0,90,180,270])
-#             sense.set_rotation(angle)
+        sense.set_rotation(angle)
+        sense.set_pixels(arrow_green)
 
-#         delay = 2
-#         # delay = delay * 0.95
-#         sleep(delay)
+        sleep(delay)
 
-# game()
+        acceleration = sense.get_accelerometer_raw()
+        x = acceleration['x']
+        y = acceleration['y']
+
+        x = round(x, 0)
+        y = round(y, 0)
+
+        if x == -1 and angle == 180:
+            sense.set_pixels(arrow_green)
+            score += 1
+        elif x == 1 and angle == 0:
+            sense.set_pixels(arrow_green)
+            score += 1
+        elif y == -1 and angle == 90:
+            sense.set_pixels(arrow_green)
+            score += 1
+        elif y == 1 and angle == 270:
+            sense.set_pixels(arrow_green)
+            score += 1
+        else:
+            sense.set_pixels(arrow_red)
+            break
+
+        delay = delay * 0.95
+        sleep(0.5)
+
+    sense.show_message("Score is {}".format(score))
+    return
+
+game()
 
 #####################################################################
