@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    //Q1
+    /*
+    int studentNumber = 0, mark;
+
+    printf("Enter Student ID: \n");
+    scanf("%d", &studentNumber);
+
+    while (studentNumber != -1)
+    {
+        printf("Enter Mark: ");
+        scanf("%d", &mark);
+
+        switch((mark+5)/10){
+            case 10:
+            case 9:
+            case 8:
+                printf("Grade = A\n");
+                break;
+            case 7:
+                printf("Grade = B\n");
+                break;
+            case 6:
+                printf("Grade = C\n");
+                break;
+            case 5:
+                printf("Grade = D\n");
+                break;
+            default:
+                printf("Grade = F\n");
+        }
+        printf("Enter Student ID: ");
+        scanf("%d", &studentNumber);
+    }
+        */
+
+
+    //Q2
+    /*
+    int line,num,i;
+    printf("Enter number of lines:\n");
+    scanf("%d", &line);
+
+    for (i=1; i<=line; i++)
+    {
+        int sum = 0, count = 0;
+        float avg;
+
+        printf("Enter line %d (end with -1):\n", i);
+        scanf("%d", &num);
+
+        while (num != -1)
+        {
+            sum += num;
+            count++;
+            scanf("%d", &num);
+        }
+        avg = sum/count;
+        printf("Average = %.2f\n", avg);
+        */
+
+        //Q3
+        /*
+        int height,i,j, remainder = 0;
+        printf("Enter the height:\n");
+        scanf("%d", &height);
+
+        printf("Pattern:\n");
+        for (i=1; i<=height; i++){
+            remainder = i%3;
+            if (remainder == 0)
+                remainder = 3;
+            for (j = 1; j<=i; j++){
+                printf("%d",remainder);
+            }
+            printf("\n");
+
+        }
+        */
+
+        //Q4
+        /*
+        int i,j;
+        double x, sum=1.0, numer = 1.0, denom = 1.0;
+        printf("Enter x:\n");
+        scanf("%lf", &x);
+
+        for (i=1; i<=10; i++){
+            denom *= i;
+            numer*=x;
+            sum += (numer/denom);
+            //printf("%lf %lf %lf\n",sum,numer,denom);
+        }
+        printf("Result = %.2lf",sum);
+        */
+
+        //Q4 lol
+        /*
+        double x;
+        double result = 0.0;
+
+        printf("Enter x:\n");
+        scanf("%lf", &x);
+
+        result = exp(x);
+        printf("Result = %.2lf",result);
+        */
+
+    return 0;
+}
